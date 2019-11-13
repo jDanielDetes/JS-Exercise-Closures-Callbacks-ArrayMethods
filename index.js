@@ -67,7 +67,8 @@ function processLength(list,callback) {
  * should return 'barbar'.
 */
 function processLastItem(stringList,callback) {
-  return callback(stringList.slice (- 1)[0]);
+  const item = stringList[stringList.length-1];
+  return callback(item)
 }
 
 /**
@@ -87,9 +88,13 @@ function processLastItem(stringList,callback) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(numberList,callback) {
+
+const sum= numberList.reduce((acc,cv)=>acc + cv, 0)
+return(callback(sum));
+
 }
+
 
 /**
  * ### Challenge `processProduct`
@@ -109,9 +114,12 @@ function processSum(/* CODE HERE */) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function processProduct(num1, num2, callback) {
+  const product = num1 * num2;
+ return callback(product)
+
+  }
+
 
 /**
  * ### Challenge `processContains`
@@ -211,8 +219,9 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners,tShirtsize) {
+  runners.map(runners => runners.shirt_size === tShirtsize && tShirtsize.push(runners));
+  return  tShirtsize;
 }
 
 /**
@@ -225,8 +234,10 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  return runners.reduce((total,array)=>{
+    return total+ array.donation;
+  },0); 
 }
 
 /////////////// CLOSURES ///////////////
